@@ -1,0 +1,138 @@
+:root {
+    --tracker-bg: linear-gradient(135deg, #f7efe4 0%, #dcefff 50%, #f6d8bf 100%);
+    --tracker-card: rgba(255, 255, 255, 0.88);
+    --tracker-text: #1f3a5f;
+    --tracker-muted: #5f6f82;
+    --tracker-accent: #e07a5f;
+    --tracker-accent-dark: #c9654d;
+    --tracker-highlight: #81b29a;
+    --tracker-border: rgba(31, 58, 95, 0.1);
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--tracker-text);
+    background: var(--tracker-bg);
+}
+
+.tracker-section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.tracker-section::before,
+.tracker-section::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: 0;
+}
+
+.tracker-section::before {
+    width: 280px;
+    height: 280px;
+    background: rgba(224, 122, 95, 0.18);
+    top: 7%;
+    left: 8%;
+}
+
+.tracker-section::after {
+    width: 220px;
+    height: 220px;
+    background: rgba(129, 178, 154, 0.24);
+    right: 10%;
+    bottom: 8%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.tracker-card {
+    background: var(--tracker-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--tracker-border);
+    border-radius: 28px;
+}
+
+.tracker-badge {
+    background-color: rgba(129, 178, 154, 0.18);
+    color: #2b5d4b;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+}
+
+.card h2 {
+    color: var(--tracker-text);
+}
+
+.form-label {
+    color: var(--tracker-text);
+}
+
+.form-select,
+.form-control {
+    border: 1px solid rgba(31, 58, 95, 0.15);
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.form-select:focus,
+.form-control:focus {
+    border-color: rgba(224, 122, 95, 0.55);
+    box-shadow: 0 0 0 0.25rem rgba(224, 122, 95, 0.18);
+    transform: translateY(-1px);
+}
+
+.tracker-btn {
+    background: linear-gradient(135deg, var(--tracker-accent), #f2a65a);
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.95rem 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.tracker-btn:hover {
+    background: linear-gradient(135deg, var(--tracker-accent-dark), #ea9440);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(224, 122, 95, 0.28);
+}
+
+.output-panel {
+    min-height: 120px;
+    border-radius: 20px;
+    padding: 1rem;
+    background: linear-gradient(145deg, rgba(129, 178, 154, 0.15), rgba(220, 239, 255, 0.9));
+    border: 1px solid rgba(129, 178, 154, 0.25);
+    overflow: auto;
+}
+
+#output.py-error,
+#output:empty::before {
+    color: var(--tracker-muted);
+    font-style: italic;
+}
+
+#output:empty::before {
+    content: "Your graph will appear here.";
+}
+
+@media (max-width: 576px) {
+    .tracker-card {
+        border-radius: 22px;
+    }
+
+    .card-body {
+        padding: 1.5rem !important;
+    }
+}
